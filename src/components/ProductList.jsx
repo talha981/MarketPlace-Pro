@@ -8,10 +8,11 @@ const ProductList = () => {
   const products = [
     {
       id: 1,
-      name: 'Stylish Jacket',
-      price: '$99.99',
-      image: 'https://tse4.mm.bing.net/th?id=OIP.VaVoE3TLFQUttN45AIjXSwHaE8&pid=Api&P=0&h=220',
+      name: 'Watches',
+      price: '$139.99',
+      image: 'https://images7.alphacoders.com/349/thumb-1920-349431.jpg',
     },
+   
     {
       id: 2,
       name: 'Casual T-Shirt',
@@ -40,7 +41,26 @@ const ProductList = () => {
       id: 6,
       name: 'Leather Handbag',
       price: '$199.99',
-      image: 'https://tse1.mm.bing.net/th?id=OIP.NiB2DFKIG9F1rK1SVFhMSgHaHa&pid=Api&P=0&h=220',
+      image: 'https://originalireland.ie/wp-content/uploads/2019/11/IMG_0253.jpg',
+    },
+   
+    {
+      id: 7,
+      name: 'Sweater',
+      price: '$89.99',
+      image: 'https://images-na.ssl-images-amazon.com/images/I/71KuXHK7MVL._AC_UL1500_.jpg',
+    },
+    {
+      id: 8,
+      name: 'Stylish Jacket',
+      price: '$92.99',
+      image: 'https://cdn.luxe.digital/media/2019/09/12083549/best-red-bomber-jacket-men-sandbank-luxury-style-luxe-digital.jpg',
+    },
+    {
+      id: 9,
+      name: 'Hoodie',
+      price: '$99.99',
+      image: 'https://berkeleytechltd.com/product-category/carhartt-mens-rain-defender-paxton-heavyweight-hooded-zip-front-sweatshirt-peat/91UJYI8HGmL._AC_UL1500_.jpg',
     },
   ];
 
@@ -57,8 +77,8 @@ const ProductList = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 my-16px-4">
-      
+    <div className="container mx-auto px-4 my-16">
+
       <section
         className="relative w-full h-96 bg-cover bg-center rounded-lg shadow-lg"
         style={{
@@ -68,35 +88,37 @@ const ProductList = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center rounded-lg">
           <h2 className="text-xl text-white uppercase mb-2 tracking-widest">
-          Trendy Wear
+            Trendy Wear
           </h2>
           <h1 className="text-5xl text-white font-bold mb-4">
-          Discover our exclusive products
+            Discover our exclusive products
           </h1>
-       
         </div>
       </section>
-      
 
       {/* Products Section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold text-center mb-8">Explore Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map(product => (
-            <div key={product.id} className="relative bg-white rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src={product.image} 
-                alt={product.name} 
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="relative bg-white rounded-lg overflow-hidden shadow-lg"
+            >
+              <img
+                src={product.image}
+                alt={product.name}
                 className="w-full h-72 object-cover object-top rounded-lg"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div className="text-center text-white">
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
+                <div className="text-center text-white p-4">
                   <h3 className="text-2xl font-semibold">{product.name}</h3>
                   <p className="text-lg mt-2">{product.price}</p>
                 </div>
               </div>
               <button
                 onClick={() => handleAddClick(product)}
+                aria-label={`Add ${product.name} to cart`}
                 className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
               >
                 Add

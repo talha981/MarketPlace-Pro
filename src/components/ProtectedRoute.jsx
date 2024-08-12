@@ -10,7 +10,7 @@ const ProtectedRoute =({children})=>{
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    },100);
+    });
 
     return () => clearTimeout(timer);
   }, []);
