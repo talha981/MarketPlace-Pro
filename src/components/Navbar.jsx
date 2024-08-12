@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
+  const { isAuthenticated, logout } = useAuth();
+
   return (
     <nav className="bg-gray-800 text-white p-4 flex items-center justify-between">
       {/* Shop Name */}
@@ -18,10 +21,23 @@ const Navbar = () => {
         <Link to="/checkout">Checkout</Link>
       </div>
 
-      {/* Login and Signup */}
+      {/* Login/Signup or Logout */}
       <div className="flex space-x-4">
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Signup</Link>
+        {isAuthenticated ? (
+          <>
+            <button
+              onClick={logout}
+              className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="hover:underline">Login</Link>
+            <Link to="/signup" className="hover:underline">Signup</Link>
+          </>
+        )}
       </div>
     </nav>
   );
