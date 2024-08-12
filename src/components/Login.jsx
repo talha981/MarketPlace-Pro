@@ -1,6 +1,8 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 // Form validation schema using Yup
 const validationSchema = Yup.object({
@@ -12,7 +14,10 @@ const validationSchema = Yup.object({
     .required("Password is required"),
 });
 
+
 const Login = () => {
+  const navigate = useNavigate();
+  const {login} = useAuth();
   const handleSubmit = (values) => {
     console.log("Form Values:", values);
 
@@ -24,6 +29,15 @@ const Login = () => {
     // Log FormData entries to console
     for (let [key, value] of formData.entries()) {
       console.log(`${key}: ${value}`);
+    }
+
+    if(values.email==='User@g.com' && values.password === '123456'){
+      login();
+      navigate('/shopping-cart')
+    }
+    else{
+      setError('Invalid credentials');
+
     }
   };
 

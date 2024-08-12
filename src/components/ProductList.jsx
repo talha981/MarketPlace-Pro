@@ -4,7 +4,6 @@ import { useProduct } from './ProductContext';
 const ProductList = () => {
   const { cart, addToCart } = useProduct();
   const [notification, setNotification] = useState(null);
-  const [confrimed , setConfirmed]= useState('')
 
   const products = [
     {
@@ -58,7 +57,7 @@ const ProductList = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 my-16">
+    <div className="container mx-auto px-4 my-16px-4">
       
       <section
         className="relative w-full h-96 bg-cover bg-center rounded-lg shadow-lg"
@@ -69,14 +68,16 @@ const ProductList = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center rounded-lg">
           <h2 className="text-xl text-white uppercase mb-2 tracking-widest">
-            Trendy Wear
+          Trendy Wear
           </h2>
           <h1 className="text-5xl text-white font-bold mb-4">
-            Discover our exclusive products
+          Discover our exclusive products
           </h1>
+       
         </div>
       </section>
       
+
       {/* Products Section */}
       <section className="my-16">
         <h2 className="text-4xl font-bold text-center mb-8">Explore Our Products</h2>
@@ -88,7 +89,7 @@ const ProductList = () => {
                 alt={product.name} 
                 className="w-full h-72 object-cover object-top rounded-lg"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
                 <div className="text-center text-white">
                   <h3 className="text-2xl font-semibold">{product.name}</h3>
                   <p className="text-lg mt-2">{product.price}</p>
